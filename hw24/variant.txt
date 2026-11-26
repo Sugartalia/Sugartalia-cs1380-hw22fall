@@ -1,0 +1,46 @@
+Homework 24 - Unions
+Name: Natalia Robertson
+
+Part A - Variant helpers
+
+1. A struct gives each member its own memory, but a union makes all the members share the same memory. So only one can hold a valid value at a time.
+
+2. After set_score, the memory holds an int. If I try to read value.average, it reads those same bytes as a float, so I would get a weird number instead of the score.
+
+3. The kind field tells the program which union member is being used (STAT_SCORE or STAT_AVERAGE), so it knows which one is safe to read.
+
+
+Part B - Demo from main.c
+
+Program output:
+
+score: 18
+get_score -> 18
+wrong kind get_average -> 0.00
+average: 3.50
+get_average -> 3.50
+wrong kind get_score -> 0
+sizeof union StatValue: 4
+sizeof struct with int+float: 8
+NULL calls did not crash
+
+4. They check the kind first so they dont read the wrong member. If it doesnt match, they just return 0 instead of getting some garbage value.
+
+5. It shows that the union members all share the same bytes. The union only needs enough space for its biggest member (4 bytes), but the struct needs space for both fields (8 bytes).
+
+
+Part C - Agentic notes and Git
+
+6. Clearing the context means starting a new chat and getting rid of old stuff that isnt related, so the agent doesnt get confused.
+
+7. Compaction is when a long conversation gets summarized into something shorter, so the important stuff still fits without keeping every single message.
+
+8. AGENTS.md is a project file that has rules the agent reads whenever it works on the project. Instead of typing the same instructions every time, I can just put them in one file and not forget.
+
+9. Always compile with gcc -Wall -Wextra -Wpedantic -std=c23 and fix all the warnings.
+
+10. Its risky because the agent could run a command that deletes files or changes something by accident, and I wouldnt get to approve it first.
+
+11. I would start a new conversation when I switch to a different homework or topic so the old stuff doesnt get mixed up with the new work.
+
+Optional try-it: I skipped the optional AGENTs
