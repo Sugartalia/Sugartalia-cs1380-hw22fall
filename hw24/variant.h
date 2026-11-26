@@ -1,16 +1,19 @@
 #ifndef VARIANT_H
 #define VARIANT_H
 
+/* Tells us which kind of value is stored */
 enum StatKind {
     STAT_SCORE = 0,
     STAT_AVERAGE = 1
 };
 
+/* Both members share the same memory */
 union StatValue {
     int score;
     float average;
 };
 
+/* The kind says which member of value is being used */
 struct Stat {
     enum StatKind kind;
     union StatValue value;
